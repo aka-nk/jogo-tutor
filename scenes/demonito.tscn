@@ -1,0 +1,138 @@
+[gd_scene load_steps=20 format=3 uid="uid://bmxcmklqpeuxe"]
+
+[ext_resource type="Script" path="res://scripts/demonito.gd" id="1_jkuyc"]
+[ext_resource type="Texture2D" uid="uid://c2mfdwfbg41yi" path="res://assets/Tiny RPG Character Asset Pack 02 -Free Demon_A&Blood Monster_A/Characters(100x100 split)/Demon_A/Demon_A/Demon_A_Idle.png" id="1_wbtsq"]
+[ext_resource type="Texture2D" uid="uid://c26tssixolw1w" path="res://assets/Tiny RPG Character Asset Pack 02 -Free Demon_A&Blood Monster_A/Characters(100x100 split)/Demon_A/Demon_A/Demon_A_Walk.png" id="2_snqlt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2nvr"]
+atlas = ExtResource("1_wbtsq")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iamlr"]
+atlas = ExtResource("1_wbtsq")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y00j3"]
+atlas = ExtResource("1_wbtsq")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgbxj"]
+atlas = ExtResource("1_wbtsq")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crdig"]
+atlas = ExtResource("1_wbtsq")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snq3f"]
+atlas = ExtResource("1_wbtsq")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftkgj"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u1ep"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3703"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb6t6"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnuia"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_827xs"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igb50"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llm8l"]
+atlas = ExtResource("2_snqlt")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4u0tw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2nvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iamlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y00j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgbxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crdig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snq3f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftkgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u1ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3703")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb6t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnuia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_827xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igb50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llm8l")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ija24"]
+radius = 3.0
+height = 8.0
+
+[node name="Demonito" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_jkuyc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4u0tw")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.801486
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_ija24")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
